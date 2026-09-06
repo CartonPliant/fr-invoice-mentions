@@ -304,8 +304,11 @@ export default {
     if (path === "/.well-known/agent-card.json" && req.method === "GET") {
       return json(agentCard(req));
     }
-    if (path === "/v1/mentions" && req.method === "POST") {
+    if ((path === "/v1/mentions" || path === "/a2a") && req.method === "POST") {
       return handleMentions(req, env);
+    }
+    if (path === "/a2a" && req.method === "GET") {
+      return json(agentCard(req));
     }
     if (path === "/" && req.method === "GET") {
       return json({

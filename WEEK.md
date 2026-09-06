@@ -22,13 +22,22 @@ C’est le test **H1** de `MARKET.md` avec 7 j d’indexation pull (pas 11 h).
 
 Auto-achat, ferme de wallets, carte fondateur = fail.
 
-## Toi (2 min)
+## Live (7 sept ~00:40 CEST)
 
-1. `npx wrangler login` (compte Cloudflare **gratuit** — pas du capital)
-2. `PAY_TO=0x… npm run deploy` (adresse dans `.env`, pas dans git)
-3. On enregistre l’URL sur a2aregistry + a2a-registry (listing 0 €, instantané)
+- Repo : https://github.com/CartonPliant/fr-invoice-mentions
+- Tunnel **éphémère** (cette session) : `https://grateful-heard-substances-wins.trycloudflare.com`
+- Wallet réception Base : `0xc361074554c13EEE51feab63ED180EF6b9911B3e` (clé privée dans `.env` gitignored — **sauvegarde**)
+- a2aregistry id : `e99209c2-2334-4ce1-ab85-076aedb566da` (lié au tunnel ; à re-pointer après wrangler)
 
-Sans URL HTTPS publique, les agents ne peuvent pas payer.
+Le tunnel meurt avec la session Grok. Pour **7 jours** il faut un Worker persistant :
+
+```bash
+npx wrangler login
+cd "/Users/user/Documents/Projet transverse/needmoneyasap"
+npx wrangler@4 deploy
+```
+
+Puis renvoyer l’URL `*.workers.dev` — je re-register A2A / Bazaar.
 
 ## Risques déjà mesurés
 

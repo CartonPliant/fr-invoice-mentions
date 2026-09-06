@@ -6,7 +6,8 @@ const port = Number(process.env.PORT || 8787);
 http
   .createServer(async (req, res) => {
     const host = req.headers.host || `127.0.0.1:${port}`;
-    const url = `http://${host}${req.url}`;
+    const proto = String(req.headers["x-forwarded-proto"] || "http").split(",")[0].trim();
+    const url = `${proto}://${host}${req.url}`;
     const chunks = [];
     for await (const c of req) chunks.push(c);
     const buf = Buffer.concat(chunks);
