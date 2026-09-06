@@ -1,5 +1,8 @@
 # Déployer sur Cloudflare (sans wrangler, sans domaine payant)
 
+**Déjà live** (wrangler, 7 sept 2026) : https://fr-invoice-mentions.monnet-yanis1.workers.dev  
+Pas besoin de Drop / zip / domaine. Les notes ci-dessous restent si on doit re-déployer sans CLI.
+
 L’écran **Drop a folder, or a zip** = Cloudflare Drop : **statique**, preview **1 h** sauf *Claim*. Ça ne fait **pas** tourner une API x402 toute seule.
 
 Il nous faut un Worker / Pages avec **`_worker.js`**.

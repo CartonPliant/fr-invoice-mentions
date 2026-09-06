@@ -1,6 +1,7 @@
 name = "fr-invoice-mentions"
 main = "src/worker.js"
-compatibility_date = "2026-09-07"
+compatibility_date = "2025-09-01"
+account_id = "05f185c3e96c8819c515e5d739b29643"
 workers_dev = true
 
 [vars]

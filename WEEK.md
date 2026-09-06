@@ -22,22 +22,16 @@ C’est le test **H1** de `MARKET.md` avec 7 j d’indexation pull (pas 11 h).
 
 Auto-achat, ferme de wallets, carte fondateur = fail.
 
-## Live (7 sept ~00:40 CEST)
+## Live (7 sept ~00:57 CEST)
 
+- **URL persistante** : https://fr-invoice-mentions.monnet-yanis1.workers.dev
 - Repo : https://github.com/CartonPliant/fr-invoice-mentions
-- Tunnel **éphémère** (cette session) : `https://grateful-heard-substances-wins.trycloudflare.com`
 - Wallet réception Base : `0xc361074554c13EEE51feab63ED180EF6b9911B3e` (clé privée dans `.env` gitignored — **sauvegarde**)
-- a2aregistry id : `e99209c2-2334-4ce1-ab85-076aedb566da` (lié au tunnel ; à re-pointer après wrangler)
+- Smoke (curl, 6 sept 22:57 UTC) : `GET /health` 200 `pay_to_configured:true` ; `POST /v1/mentions` **402** ; amount `20000` ; network `eip155:8453` ; asset USDC Base ; payTo ci-dessus
+- a2aregistry **live** : `96e192b8-f33d-4544-9a99-c60cd7c7c23a` → workers.dev (smoke 402, attendu : skill payante)
+- a2aregistry **tunnel** (périmé dès que la session meurt) : `e99209c2-2334-4ce1-ab85-076aedb566da`
 
-Le tunnel meurt avec la session Grok. Pour **7 jours** il faut un Worker persistant :
-
-```bash
-npx wrangler login
-cd "/Users/user/Documents/Projet transverse/needmoneyasap"
-npx wrangler@4 deploy
-```
-
-Puis renvoyer l’URL `*.workers.dev` — je re-register A2A / Bazaar.
+`compatibility_date` wrangler = `2025-09-01` (Cloudflare refuse une date « future » ; leurs horloges étaient encore au 6 sept UTC).
 
 ## Risques déjà mesurés
 
