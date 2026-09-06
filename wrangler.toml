@@ -1,0 +1,8 @@
+name = "fr-invoice-mentions"
+main = "src/worker.js"
+compatibility_date = "2026-09-07"
+workers_dev = true
+
+[vars]
+FACILITATOR_URL = "https://facilitator.payai.network"
+PAY_TO = "0xc361074554c13EEE51feab63ED180EF6b9911B3e"

@@ -1,0 +1,16 @@
+{
+  "name": "fr-invoice-mentions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "x402 French invoice/quote mention blocks for AI agents. Offline templates, no scrape.",
+  "scripts": {
+    "test": "node --test src/mentions.test.js",
+    "start": "node src/server.node.js",
+    "dev": "npx wrangler@4 dev",
+    "deploy": "npx wrangler@4 deploy"
+  },
+  "devDependencies": {
+    "viem": "^2.56.3"
+  }
+}
