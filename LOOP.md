@@ -593,3 +593,72 @@ H3 tient. Le trou n’est plus « on n’a pas d’idée » : c’est **inbound 
 
 0 code.
 
+---
+
+## Boucle 4 — en attendant Cloudflare (7 sept ~00:46 CEST)
+
+Cadre : horloge **7 j**, agents qui paient, CF **disponible** (dashboard Drop / domaine / protect). SKU H1 déjà écrit. On ne rachète pas un produit.
+
+### AW — Cloudflare Drop (le zip de l’écran d’accueil)
+
+Mesuré : changelog 8 juil 2026. Drop = **assets statiques**, preview **60 min** sauf Claim. **Pas** de compute Worker sauf si le zip contient `_worker.js` **et** qu’on passe par Workers & Pages (Pages drag-drop **supporte** `_worker.js` ; le Drop anonyme cloudflare.com/drop, lui, est HTML/CSS/JS).
+
+Zip préparé : `fr-invoice-mentions-drop.zip` (`_worker.js` + `index.html`). Voir `DROP.md`.
+
+**Pas une idée produit.** C’est le **déploiement**. Domaine payant = capital → **non**.
+
+### AX — Acheter un domaine chez CF
+
+Free DNS une fois le domaine **à nous**. Acheter = capital.
+
+**Tue.** `*.workers.dev` / `*.pages.dev` suffisent.
+
+### AY — Smithery `mcp publish <url>`
+
+Listing **gratuit**. Smithery ~446 k visites/mois (source secondaire). Il faut un MCP **Streamable HTTP** (`/mcp`). On n’a que HTTP x402 pour l’instant.
+
+**Park.** Dès qu’on a une URL persistante : ajouter `/mcp` (outil `mentions` qui 402), puis `smithery mcp publish`. 0 payout Smithery — on encaisse x402.
+
+### AZ — Glama « Add Server » (repo GitHub)
+
+Gratuit. ~83 k MCP indexés (6 sept). Bruit énorme. Indexe un **repo**, pas forcément l’endpoint payant.
+
+**Park + 1 clic toi** : https://glama.ai → Add Server → `https://github.com/CartonPliant/fr-invoice-mentions`. Découverte, pas d’encaissement.
+
+### BA — mcp.so / mcpservers.org / registry officielle MCP
+
+Listings 0 €, trafic réel (sources secondaires). Même prérequis que AY : un MCP.
+
+**Park** avec AY.
+
+### BB — 2e et 3e routes **sur le même Worker** (pas un 2e produit)
+
+Toujours 0 fetch, même `PAY_TO` :
+
+| Route | Job | Concurrent |
+|---|---|---|
+| `POST /v1/echeance` | date d’échéance L441-10 + 40 € + taux BCE+10 | greeneris `business_days_fr` |
+| `POST /v1/einvoice-who` | réception obligatoire dès 1er sept 2026 vs émission TPE 2027, arbre statique | comparateurs + Tiime **gratis** côté humain ; côté agent = trou |
+
+Ça **multiplie les queries Bazaar** (« french payment deadline », « e-invoice 2026 france ») sans nouveau compte. Risque : toujours 1–3 wallets FR.
+
+**Garde en file** dès que l’URL persistante est up. Pas avant (sinon on code dans le vide).
+
+### BC — « Markdown for Agents » (carte CF post-claim)
+
+CF propose d’exposer le site en markdown pour les crawlers. Utile **après** Claim. Pas un SKU. **On coche** quand le Worker est claimé.
+
+---
+
+## Ce que j’attends de toi (oui / non)
+
+| # | Demande | Reco |
+|---|---|---|
+| 1 | Déployer `fr-invoice-mentions-drop.zip` via **Workers & Pages** (pas d’achat de domaine). Coller l’URL. | **Oui** — sinon le tunnel meurt |
+| 2 | Acheter un domaine | **Non** |
+| 3 | Activer Access / Zero Trust | **Non** (bloque les agents) |
+| 4 | Glama Add Server (1 clic GitHub) | **Oui** si tu as 30 s, sinon plus tard |
+| 5 | Routes BB (`echeance` / `einvoice-who`) dès l’URL up | Dis-moi oui/non |
+
+Je ne code BB et je n’ouvre pas Smithery tant que (1) n’est pas **oui** + URL.
+
